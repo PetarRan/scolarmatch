@@ -51,10 +51,10 @@ const WhoAreYou = () => {
         <div className="space-y-2">
           <label className="text-sm font-medium text-muted-foreground">Nationality</label>
           <Select value={formData.nationality} onValueChange={(value) => setFormData({ ...formData, nationality: value })}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 bg-input border-input-border">
               <SelectValue placeholder="🇮🇹 Italy" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="dropdown-content">
               {countries.map((country) => (
                 <SelectItem key={country.value} value={country.value}>
                   {country.label}

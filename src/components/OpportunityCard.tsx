@@ -123,6 +123,12 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, isSaved }: Opportunit
           Discard
         </Button>
         <Button
+          variant="glass"
+          className="flex-1"
+        >
+          🤖 Task Agent
+        </Button>
+        <Button
           variant={isSaved ? "default" : "outline"}
           onClick={() => onSave(opportunity.id)}
           className="flex-1"

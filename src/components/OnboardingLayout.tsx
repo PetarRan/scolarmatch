@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import logoImage from '@/assets/logo.png';
+import logoImage from '@/assets/logo-main.png';
 
 interface OnboardingLayoutProps {
   children: ReactNode;

@@ -12,6 +12,8 @@ import DropCV from "./pages/DropCV";
 import AnythingElse from "./pages/AnythingElse";
 import CreateAccount from "./pages/CreateAccount";
 import Dashboard from "./pages/Dashboard";
+import SavedOpportunities from "./pages/SavedOpportunities";
+import SavedResources from "./pages/SavedResources";
 
 const queryClient = new QueryClient();
 
@@ -22,14 +24,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/who-are-you" element={<WhoAreYou />} />
+        <Route path="/" element={<WhoAreYou />} />
+        <Route path="/who-are-you" element={<WhoAreYou />} />
           <Route path="/what-do-you-study" element={<WhatDoYouStudy />} />
           <Route path="/trajectory" element={<Trajectory />} />
           <Route path="/drop-cv" element={<DropCV />} />
           <Route path="/anything-else" element={<AnythingElse />} />
-          <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/saved-opportunities" element={<SavedOpportunities />} />
+        <Route path="/saved-resources" element={<SavedResources />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

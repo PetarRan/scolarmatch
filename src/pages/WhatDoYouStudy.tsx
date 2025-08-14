@@ -62,10 +62,10 @@ const WhatDoYouStudy = () => {
         <div className="space-y-2">
           <label className="text-sm font-medium text-muted-foreground">Where</label>
           <Select value={formData.where} onValueChange={(value) => setFormData({ ...formData, where: value })}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 bg-input border-input-border">
               <SelectValue placeholder="University (bachelor)" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="dropdown-content">
               {educationLevels.map((level) => (
                 <SelectItem key={level.value} value={level.value}>
                   {level.label}
@@ -78,10 +78,10 @@ const WhatDoYouStudy = () => {
         <div className="space-y-2">
           <label className="text-sm font-medium text-muted-foreground">Year</label>
           <Select value={formData.year} onValueChange={(value) => setFormData({ ...formData, year: value })}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 bg-input border-input-border">
               <SelectValue placeholder="3rd" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="dropdown-content">
               {studyYears.map((year) => (
                 <SelectItem key={year.value} value={year.value}>
                   {year.label}

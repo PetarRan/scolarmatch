@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import OpportunityCard from '@/components/OpportunityCard';
 import ResourceCard from '@/components/ResourceCard';
 import { User, BookmarkIcon } from 'lucide-react';
-import logoImage from '@/assets/logo.png';
+import logoImage from '@/assets/logo-main.png';
 
 // Mock data - in real app would come from Supabase
 const mockOpportunities = [
@@ -148,11 +148,19 @@ const Dashboard = () => {
               <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
             </div>
             <div className="flex items-center gap-4">
-              <Button variant="glass" className="gap-2">
+              <Button 
+                variant="glass" 
+                className="gap-2"
+                onClick={() => navigate('/saved-opportunities')}
+              >
                 <BookmarkIcon className="h-4 w-4" />
                 Saved opportunities
               </Button>
-              <Button variant="glass" className="gap-2">
+              <Button 
+                variant="glass" 
+                className="gap-2"
+                onClick={() => navigate('/saved-resources')}
+              >
                 <BookmarkIcon className="h-4 w-4" />
                 Saved resources
               </Button>
