@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import OpportunityCard from '@/components/OpportunityCard';
 import { ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import logoImage from '@/assets/logo-main.png';
 
 // Mock saved opportunities
 const mockSavedOpportunities = [
@@ -66,8 +65,8 @@ const SavedOpportunities = () => {
               <Button variant="ghost" size="icon" onClick={() => navigate('/dashboard')}>
                 <ArrowLeft className="h-5 w-5" />
               </Button>
-              <img src={logoImage} alt="Scolarmatch" className="h-8 w-auto" />
-              <span className="text-xl font-semibold text-foreground">Saved Opportunities</span>
+              <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
+              <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import logoImage from '@/assets/logo.png';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-primary flex items-center justify-center p-6">
       <div className="text-center max-w-2xl">
         <div className="mb-8">
-          <img src={logoImage} alt="Scolarmatch" className="h-16 w-auto mx-auto mb-4" />
+          <img src="/logo.png" alt="Scolarmatch" className="h-16 w-auto mx-auto mb-4" />
           <h1 className="text-5xl font-bold text-foreground mb-4 gradient-text">
             Scolarmatch
           </h1>

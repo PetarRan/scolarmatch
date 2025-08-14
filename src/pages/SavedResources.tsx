@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import ResourceCard from '@/components/ResourceCard';
 import { ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import logoImage from '@/assets/logo-main.png';
 
 // Mock saved resources
 const mockSavedResources = [
@@ -48,8 +47,8 @@ const SavedResources = () => {
               <Button variant="ghost" size="icon" onClick={() => navigate('/dashboard')}>
                 <ArrowLeft className="h-5 w-5" />
               </Button>
-              <img src={logoImage} alt="Scolarmatch" className="h-8 w-auto" />
-              <span className="text-xl font-semibold text-foreground">Saved Resources</span>
+              <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
+              <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
             </div>
           </div>
         </div>

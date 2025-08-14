@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import logoImage from '@/assets/logo-main.png';
 
 interface OnboardingLayoutProps {
   children: ReactNode;
@@ -18,7 +17,7 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
       {/* Header */}
       <header className="flex justify-between items-center p-6">
         <div className="flex items-center gap-2">
-          <img src={logoImage} alt="Scolarmatch" className="h-8 w-auto" />
+          <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
           <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
         </div>
         <Button 

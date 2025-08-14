@@ -5,7 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import OpportunityCard from '@/components/OpportunityCard';
 import ResourceCard from '@/components/ResourceCard';
 import { User, BookmarkIcon } from 'lucide-react';
-import logoImage from '@/assets/logo-main.png';
 
 // Mock data - in real app would come from Supabase
 const mockOpportunities = [
@@ -144,7 +143,7 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={logoImage} alt="Scolarmatch" className="h-8 w-auto" />
+              <img src="/logo-full.png" alt="Scolarmatch" className="h-8 w-auto" />
               <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
             </div>
             <div className="flex items-center gap-4">
