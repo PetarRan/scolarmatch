@@ -13,7 +13,7 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-primary flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="flex justify-between items-center p-6">
         <div className="flex items-center gap-2">

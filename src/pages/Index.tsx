@@ -18,7 +18,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-primary flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6">
       <div className="text-center max-w-2xl">
         <div className="mb-8">
           <img src="/logo.png" alt="Scolarmatch" className="h-16 w-auto mx-auto mb-4" />
