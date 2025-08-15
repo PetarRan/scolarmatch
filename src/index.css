@@ -168,9 +168,9 @@
       padding-right: 1rem;
     }
     
-    /* Mobile card improvements */
+    /* Remove excessive margins on mobile */
     .dashboard-bg .bg-gradient-to-br {
-      margin: 0 0.5rem;
+      margin: 0;
     }
 
     /* Prevent badge overflow on mobile */

@@ -219,10 +219,11 @@ const Dashboard = () => {
     <div className="min-h-screen dashboard-bg container">
       {/* Header */}
       <header>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo-full.png" alt="Scolarmatch" className="h-8 sm:h-12 w-auto" />
+              <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto sm:hidden" />
+              <img src="/logo-full.png" alt="Scolarmatch" className="h-8 sm:h-12 w-auto hidden sm:block" />
             </div>
             <div className="flex items-center gap-2 sm:gap-4">
               <Button 
@@ -232,7 +233,7 @@ const Dashboard = () => {
               >
                 <BookmarkIcon className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span className="hidden sm:inline">Saved opportunities</span>
-                <span className="sm:hidden">Opportunities</span>
+                <span className="sm:hidden">Saved</span>
               </Button>
               <Button 
                 variant="glass" 
@@ -252,10 +253,10 @@ const Dashboard = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      <main className="max-w-7xl mx-auto px-2 sm:px-6 py-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-8">
           {/* Opportunities Column */}
-          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-3 sm:p-6 backdrop-blur-md">
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl sm:text-4xl text-foreground">Opportunities</h2>
@@ -293,7 +294,7 @@ const Dashboard = () => {
           </div>
 
           {/* Resources Column */}
-          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-3 sm:p-6 backdrop-blur-md">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-2xl sm:text-4xl text-foreground">Resources</h2>
               
