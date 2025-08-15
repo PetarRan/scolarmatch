@@ -9,37 +9,25 @@
     /* Scolarmatch Purple Gradient System */
     --background: 262 83% 58%; /* Purple base */
     --foreground: 0 0% 100%; /* White text */
-
+    
     /* Gradient backgrounds */
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(262 83% 58%),
-      hsl(250 40% 15%)
-    );
-    --gradient-card: linear-gradient(
-      135deg,
-      hsla(262 83% 58% / 0.1),
-      hsla(250 40% 15% / 0.3)
-    );
-    --gradient-glass: linear-gradient(
-      135deg,
-      hsla(0 0% 100% / 0.1),
-      hsla(0 0% 100% / 0.05)
-    );
-
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(250 40% 15%));
+    --gradient-card: linear-gradient(135deg, hsla(262 83% 58% / 0.1), hsla(250 40% 15% / 0.3));
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.1), hsla(0 0% 100% / 0.05));
+    
     /* Card and surface colors */
     --card: 250 40% 15%; /* Dark purple */
     --card-foreground: 0 0% 100%;
     --card-glass: hsla(0 0% 0% / 0.4); /* Glass morphism */
     --card-border: hsla(0 0% 100% / 0.1);
-
+    
     /* New card styling */
-    --card-gradient: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a);
-    --card-border-new: #ffffff0d;
-    --button-discard: #ff8585;
-    --button-save: #ffffff;
-    --button-task: #ffffff;
-
+    --card-gradient: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A);
+    --card-border-new: #FFFFFF0D;
+    --button-discard: #FF8585;
+    --button-save: #FFFFFF;
+    --button-task: #FFFFFF;
+    
     /* Form elements */
     --input: hsla(250 40% 12% / 0.8); /* Darker purple for inputs */
     --input-foreground: 0 0% 100%;
@@ -47,30 +35,30 @@
     --input-focus: hsla(0 0% 100% / 0.3);
     --placeholder: hsla(0 0% 100% / 0.15);
     --placeholder-focus: hsla(0 0% 100% / 0.25);
-
+    
     /* Primary actions */
     --primary: 0 0% 100%; /* White buttons */
     --primary-foreground: 250 40% 15%; /* Dark text on white */
     --primary-hover: hsla(0 0% 100% / 0.9);
-
+    
     /* Secondary actions */
     --secondary: hsla(0 0% 0% / 0.4); /* Dark glass */
     --secondary-foreground: 0 0% 100%;
     --secondary-hover: hsla(0 0% 0% / 0.6);
     --secondary-border: hsla(0 0% 100% / 0.2);
-
+    
     /* Accent colors */
     --accent: 262 83% 58%; /* Brand purple */
     --accent-foreground: 0 0% 100%;
-
+    
     /* Muted elements */
     --muted: hsla(0 0% 100% / 0.6);
     --muted-foreground: hsla(0 0% 100% / 0.7);
-
+    
     /* Borders and rings */
     --border: hsla(0 0% 100% / 0.1);
     --ring: hsla(0 0% 100% / 0.3);
-
+    
     /* Status colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -78,16 +66,16 @@
     --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
-
+    
     /* Sizing */
     --radius: 1rem;
-
+    
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --animation-fade-in: fadeIn 0.6s ease-out;
     --animation-slide-up: slideUp 0.5s ease-out;
   }
-
+  
   /* Dark mode adjustments (same as light since we're purple themed) */
   .dark {
     --background: 262 83% 58%;
@@ -111,65 +99,52 @@
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
-    background: url("./assets/background.png") no-repeat center center fixed;
+    background: url('./assets/background.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      "Roboto", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
-
+  
   /* Dashboard specific background flip */
   .dashboard-bg {
     position: relative;
   }
-
+  
   .dashboard-bg::before {
-    content: "";
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("./assets/background.png") no-repeat center center;
+    background: url('./assets/background.png') no-repeat center center;
     background-size: cover;
     transform: rotate(180deg);
     z-index: -1;
     pointer-events: none;
   }
-
+  
   /* Custom animations */
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
+  
   @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
+  
   /* Glass morphism utility */
   .glass {
     background: var(--card-glass);
     backdrop-filter: blur(16px);
     border: 1px solid var(--card-border);
   }
-
+  
   /* Gradient text */
   .gradient-text {
     background: linear-gradient(135deg, hsl(262 83% 58%), hsl(300 50% 70%));
@@ -177,63 +152,63 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
+  
   /* Input placeholder styles */
   .input-field::placeholder {
     color: hsl(var(--placeholder));
     opacity: 1;
   }
-
+  
   .input-field:focus::placeholder {
     color: hsl(var(--placeholder-focus));
   }
-
+  
   /* Direct placeholder styling for all inputs */
   input::placeholder,
   textarea::placeholder {
     color: rgba(255, 255, 255, 0.15) !important;
     opacity: 1 !important;
   }
-
+  
   input:focus::placeholder,
   textarea:focus::placeholder {
     color: rgba(255, 255, 255, 0.25) !important;
     opacity: 1 !important;
   }
-
+  
   /* Override button styling for dashboard cards */
   .dashboard-card-button {
-    background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-    border: 2px solid #ffffff0d !important;
+    background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+    border: 2px solid #FFFFFF0D !important;
     color: inherit !important;
   }
-
+  
   .dashboard-card-button:hover {
-    background: linear-gradient(135deg, #fdfdfd1a, #f0f0e42a) !important;
+    background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
   }
-
+  
   /* Modal styling to match app theme */
   .dashboard-modal {
-    background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-    border: 2px solid #ffffff0d !important;
+    background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+    border: 2px solid #FFFFFF0D !important;
     backdrop-filter: blur(16px) !important;
   }
-
+  
   .dashboard-modal .border {
-    border-color: #ffffff0d !important;
+    border-color: #FFFFFF0D !important;
   }
-
+  
   /* Hide number input spinners */
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
+  
   input[type="number"] {
     -moz-appearance: textfield;
   }
-
+  
   /* Dropdown content styling */
   .dropdown-content {
     background: hsl(var(--card));
@@ -245,78 +220,68 @@
 
 /* Onboarding input styles */
 .onboarding-input {
-  background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-  border: 2px solid #ffffff0d !important;
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
   padding: 15px 18px !important;
 }
 
 .onboarding-input:focus {
-  background: linear-gradient(135deg, #fdfdfd1a, #f0f0e42a) !important;
-  /* Remove the white ring on focus */
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-/* Also override focus-visible state */
-.onboarding-input:focus-visible {
-  ring: 0 !important;
-  ring-offset: 0 !important;
-  outline: none !important;
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
 }
 
 /* Onboarding button styles */
 .onboarding-button {
-  background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-  border: 2px solid #ffffff0d !important;
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
 }
 
 .onboarding-button:hover {
-  background: linear-gradient(135deg, #fdfdfd1a, #f0f0e42a) !important;
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
 }
 
 /* Trajectory modal styles */
 .trajectory-modal {
-  background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-  border: 2px solid #ffffff0d !important;
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
   backdrop-filter: blur(16px) !important;
   margin-top: 20px !important;
 }
 
 /* Trajectory option styles */
 .trajectory-option {
-  border: 1px solid #ffffff33 !important;
+  border: 1px solid #FFFFFF33 !important;
 }
 
 /* Input label styles */
 .input-label {
-  color: #a1a4a5 !important;
+  color: #A1A4A5 !important;
   font-weight: normal !important;
 }
 
 /* Subtitle styles */
 .subtitle-text {
-  color: #a1a4a5 !important;
+  color: #A1A4A5 !important;
 }
 
 /* Continue button styles */
 .continue-button {
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /* Dropdown styles */
 .onboarding-dropdown {
-  background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-  border: 2px solid #ffffff0d !important;
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
 }
 
 .onboarding-dropdown:focus {
-  background: linear-gradient(135deg, #fdfdfd1a, #f0f0e42a) !important;
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
 }
 
 /* Dropdown content styles */
 .onboarding-dropdown-content {
-  background: linear-gradient(135deg, #fdfdfd0d, #f0f0e41a) !important;
-  border: 2px solid #ffffff0d !important;
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
   backdrop-filter: blur(16px) !important;
 }
 
