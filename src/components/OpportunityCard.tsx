@@ -186,7 +186,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FF8585] disabled:opacity-50"
         >
           <X className="h-3 w-3 mr-1" />
-          <span className="hidden sm:inline">Discard</span>
+          <span>Discard</span>
         </Button>
         <Button
           variant="outline"
@@ -197,12 +197,12 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           {isSaved ? (
             <>
               <BookmarkCheck className="h-3 w-3 mr-1" />
-              <span className="hidden sm:inline">Saved</span>
+              <span>Saved</span>
             </>
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              <span className="hidden sm:inline">Save</span>
+              <span>Save</span>
             </>
           )}
         </Button>
