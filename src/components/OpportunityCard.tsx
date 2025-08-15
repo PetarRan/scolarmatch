@@ -132,8 +132,8 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
         {opportunity.isAISuggested && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5 bg-green-400/20 text-green-300 border-green-400/30">
             <Zap className="h-3 w-3" />
-            <span className="hidden sm:inline">AI Suggested</span>
-            <span className="sm:hidden">AI</span>
+            <span className="hidden sm:inline">AI Match</span>
+            <span className="sm:hidden">AI Match</span>
           </Badge>
         )}
         {opportunity.sponsorsVisa && (
@@ -154,7 +154,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5 bg-blue-500/20 text-blue-400 border-blue-500/30">
             <Loader2 className="h-3 w-3 animate-spin" />
             <span className="hidden sm:inline">Agent Working</span>
-            <span className="sm:hidden">Working</span>
+            <span className="sm:hidden">Agent Working</span>
           </Badge>
         )}
       </div>
@@ -175,7 +175,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           ) : (
             <>
               <span className="hidden sm:inline">🤖 Task Agent</span>
-              <span className="sm:hidden">🤖 Apply</span>
+              <span className="sm:hidden">🤖 Task Agent</span>
             </>
           )}
         </Button>

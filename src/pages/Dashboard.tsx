@@ -219,7 +219,7 @@ const Dashboard = () => {
     <div className="min-h-screen dashboard-bg container">
       {/* Header */}
       <header>
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 py-4">
+        <div className="max-w-7xl mx-auto px-0 sm:px-6 py-1 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto sm:hidden" />
@@ -253,11 +253,11 @@ const Dashboard = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-2 sm:px-6 py-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-8">
+      <main className="max-w-7xl mx-auto px-0 sm:px-6 py-2 sm:py-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-1 sm:gap-8">
           {/* Opportunities Column */}
-          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-3 sm:p-6 backdrop-blur-md">
-            <div className="space-y-4 sm:space-y-6">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-1 sm:p-6 backdrop-blur-md">
+            <div className="space-y-2 sm:space-y-6">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl sm:text-4xl text-foreground">Opportunities</h2>
               </div>
@@ -277,7 +277,7 @@ const Dashboard = () => {
               </div>
 
               {/* Opportunities List */}
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-1 sm:space-y-4">
                 {filteredOpportunities.map((opportunity) => (
                   <OpportunityCard
                     key={opportunity.id}
@@ -294,11 +294,11 @@ const Dashboard = () => {
           </div>
 
           {/* Resources Column */}
-          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-3 sm:p-6 backdrop-blur-md">
-            <div className="space-y-4 sm:space-y-6">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-1 sm:p-6 backdrop-blur-md">
+            <div className="space-y-2 sm:space-y-6">
               <h2 className="text-2xl sm:text-4xl text-foreground">Resources</h2>
               
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-1 sm:space-y-4">
                 {mockResources.map((resource) => (
                   <ResourceCard
                     key={resource.id}
