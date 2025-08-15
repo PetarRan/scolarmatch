@@ -253,9 +253,9 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-8">
           {/* Opportunities Column */}
-          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl sm:text-4xl text-foreground">Opportunities</h2>
@@ -293,7 +293,7 @@ const Dashboard = () => {
           </div>
 
           {/* Resources Column */}
-          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+          <div className="w-full bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-2xl sm:text-4xl text-foreground">Resources</h2>
               

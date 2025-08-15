@@ -90,7 +90,7 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-end gap-1 sm:gap-2 pt-2">
+      <div className="flex flex-wrap items-center justify-end gap-1 sm:gap-2 pt-2">
         <Button
           variant="outline"
           onClick={() => onDiscard(resource.id)}
@@ -114,8 +114,8 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              <span className="hidden sm:inline">Save</span>
               <span className="sm:hidden">☆</span>
+              <span className="hidden sm:inline">Save</span>
             </>
           )}
         </Button>

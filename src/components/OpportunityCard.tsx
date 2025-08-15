@@ -86,8 +86,8 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
       </div>
 
       {/* Type and Tags */}
-      <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
-        <div className="flex items-center gap-1 sm:gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
           <Badge className={`${typeColor} text-xs px-2 py-0.5`}>
             {opportunity.type.charAt(0).toUpperCase() + opportunity.type.slice(1)}
           </Badge>
@@ -128,7 +128,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
       </p>
 
       {/* Sponsorship Indicators */}
-      <div className="flex items-center justify-end gap-1 sm:gap-2">
+      <div className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
         {opportunity.isAISuggested && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5 bg-green-400/20 text-green-300 border-green-400/30">
             <Zap className="h-3 w-3" />
@@ -160,7 +160,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-end gap-1 sm:gap-2 pt-2">
+      <div className="flex flex-wrap items-center justify-end gap-1 sm:gap-2 pt-2">
         <Button
           variant="outline"
           onClick={() => onTaskAgent(opportunity)}
@@ -205,8 +205,8 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              <span className="hidden sm:inline">Save</span>
               <span className="sm:hidden">☆</span>
+              <span className="hidden sm:inline">Save</span>
             </>
           )}
         </Button>

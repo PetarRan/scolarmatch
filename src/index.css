@@ -172,6 +172,26 @@
     .dashboard-bg .bg-gradient-to-br {
       margin: 0 0.5rem;
     }
+
+    /* Prevent badge overflow on mobile */
+    .badge {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* Better button layout on mobile */
+    .dashboard-card-button {
+      min-width: auto;
+      flex-shrink: 0;
+    }
+
+    /* Ensure proper text wrapping */
+    .line-clamp-1, .line-clamp-2, .line-clamp-3 {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
   }
 
   body {
