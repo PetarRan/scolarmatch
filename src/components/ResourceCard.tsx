@@ -38,11 +38,11 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
   const sourceColor = getSourceColor(resource.source);
 
   return (
-    <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-lg p-4 backdrop-blur-md space-y-4">
+    <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-lg p-3 sm:p-4 backdrop-blur-md space-y-3 sm:space-y-4">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-start gap-3 flex-1 min-w-0">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+      <div className="flex items-start justify-between gap-2 sm:gap-3">
+        <div className="flex items-start gap-2 sm:gap-3 flex-1 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
             {resource.logo ? (
               <img 
                 src={resource.logo} 
@@ -56,31 +56,31 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
                 }}
               />
             ) : null}
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${resource.logo ? 'hidden' : ''} ${sourceColor}`}>
-              <span className="text-sm font-bold">
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${resource.logo ? 'hidden' : ''} ${sourceColor}`}>
+              <span className="text-xs sm:text-sm font-bold">
                 {resource.source.charAt(0).toUpperCase()}
               </span>
             </div>
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="font-medium text-foreground line-clamp-2 leading-tight mb-1">
+            <h3 className="font-medium text-foreground line-clamp-2 leading-tight mb-1 text-sm sm:text-base">
               {resource.title}
             </h3>
-            <p className="text-sm text-muted-foreground">{resource.source}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">{resource.source}</p>
           </div>
         </div>
         <Button
           variant="ghost"
           size="icon"
           onClick={() => window.open(resource.url, '_blank')}
-          className="flex-shrink-0 h-8 w-8"
+          className="flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8"
         >
-          <ExternalLink className="h-4 w-4" />
+          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
         </Button>
       </div>
 
       {/* Description */}
-      <p className="text-sm text-foreground leading-relaxed line-clamp-3">
+      <p className="text-xs sm:text-sm text-foreground leading-relaxed line-clamp-3">
         {resource.description}
       </p>
 
@@ -90,29 +90,32 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-end gap-2 pt-2">
+      <div className="flex items-center justify-end gap-1 sm:gap-2 pt-2">
         <Button
           variant="outline"
           onClick={() => onDiscard(resource.id)}
-          className="dashboard-card-button px-3 py-1 h-8 text-sm text-[#FF8585]"
+          className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FF8585]"
         >
           <X className="h-3 w-3 mr-1" />
-          Discard
+          <span className="hidden sm:inline">Discard</span>
+          <span className="sm:hidden">X</span>
         </Button>
         <Button
           variant="outline"
           onClick={() => onSave(resource.id)}
-          className="dashboard-card-button px-3 py-1 h-8 text-sm text-[#FFFFFF]"
+          className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FFFFFF]"
           >
           {isSaved ? (
             <>
               <BookmarkCheck className="h-3 w-3 mr-1" />
-              Saved
+              <span className="hidden sm:inline">Saved</span>
+              <span className="sm:hidden">✓</span>
             </>
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              Save
+              <span className="hidden sm:inline">Save</span>
+              <span className="sm:hidden">☆</span>
             </>
           )}
         </Button>

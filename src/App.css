@@ -5,14 +5,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
-#root {
+/* Remove conflicting root styles */
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 .card {
   padding: 2em;

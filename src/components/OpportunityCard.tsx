@@ -42,11 +42,11 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
   const typeColor = typeColors[opportunity.type];
 
   return (
-    <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-lg p-4 backdrop-blur-md space-y-4">
+    <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-lg p-3 sm:p-4 backdrop-blur-md space-y-3 sm:space-y-4">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-start gap-3 flex-1 min-w-0">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+      <div className="flex items-start justify-between gap-2 sm:gap-3">
+        <div className="flex items-start gap-2 sm:gap-3 flex-1 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
             {opportunity.logo ? (
               <img 
                 src={opportunity.logo} 
@@ -61,17 +61,17 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
               />
             ) : null}
             <div className={`w-full h-full bg-primary rounded-lg flex items-center justify-center ${opportunity.logo ? 'hidden' : ''}`}>
-              <span className="text-primary-foreground font-bold text-sm">
+              <span className="text-primary-foreground font-bold text-xs sm:text-sm">
                 {opportunity.organization.charAt(0)}
               </span>
             </div>
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="font-semibold text-foreground line-clamp-1 mb-1">
+            <h3 className="font-semibold text-foreground line-clamp-1 mb-1 text-sm sm:text-base">
               {opportunity.title}
             </h3>
             <div className="flex items-center justify-between">
-              <p className="text-sm text-muted-foreground">{opportunity.organization}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">{opportunity.organization}</p>
             </div>
           </div>
         </div>
@@ -79,20 +79,20 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
           variant="ghost"
           size="icon"
           onClick={() => window.open(opportunity.url, '_blank')}
-          className="flex-shrink-0"
+          className="flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8"
         >
-          <ExternalLink className="h-4 w-4" />
+          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
         </Button>
       </div>
 
       {/* Type and Tags */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <div className="flex items-center gap-2">
-          <Badge className={typeColor}>
+      <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <Badge className={`${typeColor} text-xs px-2 py-0.5`}>
             {opportunity.type.charAt(0).toUpperCase() + opportunity.type.slice(1)}
           </Badge>
           {opportunity.location && (
-            <Badge variant="outline" className="text-xs">
+            <Badge variant="outline" className="text-xs px-2 py-0.5">
               📍 {opportunity.location}
             </Badge>
           )}
@@ -112,7 +112,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
       </div>
 
       {/* Description */}
-      <p className="text-sm text-foreground leading-relaxed">
+      <p className="text-xs sm:text-sm text-foreground leading-relaxed">
         {isExpanded 
           ? opportunity.description 
           : `${opportunity.description.slice(0, 150)}${opportunity.description.length > 150 ? '...' : ''}`
@@ -128,74 +128,85 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
       </p>
 
       {/* Sponsorship Indicators */}
-      <div className="flex items-center justify-end gap-2">
+      <div className="flex items-center justify-end gap-1 sm:gap-2">
         {opportunity.isAISuggested && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5 bg-green-400/20 text-green-300 border-green-400/30">
             <Zap className="h-3 w-3" />
-            AI Suggested
+            <span className="hidden sm:inline">AI Suggested</span>
+            <span className="sm:hidden">AI</span>
           </Badge>
         )}
         {opportunity.sponsorsVisa && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5">
             <Globe className="h-3 w-3" />
-            Visa Sponsor
+            <span className="hidden sm:inline">Visa Sponsor</span>
+            <span className="sm:hidden">Visa</span>
           </Badge>
         )}
         {opportunity.sponsorsH1B && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5">
             <Building2 className="h-3 w-3" />
-            H1B Sponsor
+            <span className="hidden sm:inline">H1B Sponsor</span>
+            <span className="sm:hidden">H1B</span>
           </Badge>
         )}
         {isWorking && (
           <Badge variant="outline" className="text-xs flex items-center gap-1 px-2 py-0.5 bg-blue-500/20 text-blue-400 border-blue-500/30">
             <Loader2 className="h-3 w-3 animate-spin" />
-            Agent Working
+            <span className="hidden sm:inline">Agent Working</span>
+            <span className="sm:hidden">Working</span>
           </Badge>
         )}
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-end gap-2 pt-2">
+      <div className="flex items-center justify-end gap-1 sm:gap-2 pt-2">
         <Button
           variant="outline"
           onClick={() => onTaskAgent(opportunity)}
           disabled={isWorking}
-          className="dashboard-card-button px-3 py-1 h-8 text-sm text-[#FFFFFF] disabled:opacity-50"
+          className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FFFFFF] disabled:opacity-50"
         >
           {isWorking ? (
             <>
               <Loader2 className="h-3 w-3 mr-1 animate-spin" />
-              Working...
+              <span className="hidden sm:inline">Working...</span>
+              <span className="sm:hidden">...</span>
             </>
           ) : (
-            '🤖 Task Agent'
+            <>
+              <span className="hidden sm:inline">🤖 Task Agent</span>
+              <span className="sm:hidden">🤖</span>
+            </>
           )}
         </Button>
         <Button
           variant="outline"
           onClick={() => onDiscard(opportunity.id)}
           disabled={isWorking}
-          className="dashboard-card-button px-3 py-1 h-8 text-sm text-[#FF8585] disabled:opacity-50"
+          className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FF8585] disabled:opacity-50"
         >
           <X className="h-3 w-3 mr-1" />
-          Discard
+          <span className="hidden sm:inline">Discard</span>
+          <span className="sm:hidden">X</span>
         </Button>
         <Button
           variant="outline"
           onClick={() => onSave(opportunity.id)}
           disabled={isWorking}
-          className="dashboard-card-button px-3 py-1 h-8 text-sm text-[#FFFFFF] disabled:opacity-50"
+          className="dashboard-card-button px-2 sm:px-3 py-1 h-7 sm:h-8 text-xs sm:text-sm text-[#FFFFFF] disabled:opacity-50"
         >
           {isSaved ? (
             <>
               <BookmarkCheck className="h-3 w-3 mr-1" />
-              Saved
+              <span className="hidden sm:inline">Saved</span>
+              <span className="sm:hidden">✓</span>
             </>
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              Save
+              <span className="hidden sm:inline">Save</span>
+              <span className="sm:hidden">☆</span>
             </>
           )}
         </Button>

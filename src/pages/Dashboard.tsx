@@ -219,30 +219,32 @@ const Dashboard = () => {
     <div className="min-h-screen dashboard-bg container">
       {/* Header */}
       <header>
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo-full.png" alt="Scolarmatch" className="h-12 w-auto" />
+              <img src="/logo-full.png" alt="Scolarmatch" className="h-8 sm:h-12 w-auto" />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <Button 
                 variant="glass" 
-                className="gap-2"
+                className="gap-2 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
                 onClick={() => navigate('/saved-opportunities')}
               >
-                <BookmarkIcon className="h-4 w-4" />
-                Saved opportunities
+                <BookmarkIcon className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden sm:inline">Saved opportunities</span>
+                <span className="sm:hidden">Saved</span>
               </Button>
               <Button 
                 variant="glass" 
-                className="gap-2"
+                className="gap-2 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
                 onClick={() => navigate('/saved-resources')}
               >
-                <BookmarkIcon className="h-4 w-4" />
-                Saved resources
+                <BookmarkIcon className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden sm:inline">Saved resources</span>
+                <span className="sm:hidden">Resources</span>
               </Button>
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <User className="h-4 w-4 text-primary-foreground" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                <User className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground" />
               </div>
             </div>
           </div>
@@ -250,13 +252,13 @@ const Dashboard = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
           {/* Opportunities Column */}
-          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
-            <div className="space-y-6">
+          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+            <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-4xl text-foreground">Opportunities</h2>
+                <h2 className="text-2xl sm:text-4xl text-foreground">Opportunities</h2>
               </div>
 
               {/* Filters */}
@@ -274,7 +276,7 @@ const Dashboard = () => {
               </div>
 
               {/* Opportunities List */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {filteredOpportunities.map((opportunity) => (
                   <OpportunityCard
                     key={opportunity.id}
@@ -291,11 +293,11 @@ const Dashboard = () => {
           </div>
 
           {/* Resources Column */}
-          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
-            <div className="space-y-6">
-              <h2 className="text-4xl text-foreground">Resources</h2>
+          <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-4 sm:p-6 backdrop-blur-md">
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-2xl sm:text-4xl text-foreground">Resources</h2>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {mockResources.map((resource) => (
                   <ResourceCard
                     key={resource.id}
