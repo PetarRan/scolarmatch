@@ -98,7 +98,6 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
         >
           <X className="h-3 w-3 mr-1" />
           <span className="hidden sm:inline">Discard</span>
-          <span className="sm:hidden"></span>
         </Button>
         <Button
           variant="outline"
@@ -109,12 +108,10 @@ const ResourceCard = ({ resource, onSave, onDiscard, isSaved }: ResourceCardProp
             <>
               <BookmarkCheck className="h-3 w-3 mr-1" />
               <span className="hidden sm:inline">Saved</span>
-              <span className="sm:hidden"></span>
             </>
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              <span className="sm:hidden"></span>
               <span className="hidden sm:inline">Save</span>
             </>
           )}

@@ -233,7 +233,7 @@ const Dashboard = () => {
               >
                 <BookmarkIcon className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span className="hidden sm:inline">Saved opportunities</span>
-                <span className="sm:hidden">Saved</span>
+                <span className="sm:hidden">Opportunities</span>
               </Button>
               <Button 
                 variant="glass" 
