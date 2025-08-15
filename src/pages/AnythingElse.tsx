@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import OnboardingLayout from '@/components/OnboardingLayout';
+import PageTransition from '@/components/PageTransition';
 
 const AnythingElse = () => {
   const navigate = useNavigate();
@@ -25,31 +26,33 @@ const AnythingElse = () => {
   };
 
   return (
-    <OnboardingLayout title="Anything else?" step={5}>
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <p className="subtitle-text text-center text-lg">
-            Is there anything else you'd like us to know about you?
-          </p>
-        </div>
+    <PageTransition>
+      <OnboardingLayout title="Anything else?" step={5}>
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="subtitle-text text-center text-lg">
+              Is there anything else you'd like us to know about you?
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          <Textarea
-            placeholder="Tell us about your interests, goals, or any specific requirements..."
-            value={additionalInfo}
-            onChange={(e) => setAdditionalInfo(e.target.value)}
-            className="onboarding-input min-h-[200px] resize-none"
-          />
-        </div>
+          <div className="space-y-4">
+            <Textarea
+              placeholder="Tell us about your interests, goals, or any specific requirements..."
+              value={additionalInfo}
+              onChange={(e) => setAdditionalInfo(e.target.value)}
+              className="onboarding-input min-h-[200px] resize-none"
+            />
+          </div>
 
-        <Button 
-          onClick={handleNext}
-          className="w-full onboarding-button continue-button"
-        >
-          Continue
-        </Button>
-      </div>
-    </OnboardingLayout>
+          <Button 
+            onClick={handleNext}
+            className="w-full onboarding-button continue-button"
+          >
+            Continue
+          </Button>
+        </div>
+      </OnboardingLayout>
+    </PageTransition>
   );
 };
 

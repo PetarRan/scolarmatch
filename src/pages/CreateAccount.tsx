@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import OnboardingLayout from '@/components/OnboardingLayout';
+import PageTransition from '@/components/PageTransition';
 import { Apple, Mail } from 'lucide-react';
 
 const CreateAccount = () => {
@@ -43,37 +44,39 @@ const CreateAccount = () => {
   };
 
   return (
-    <OnboardingLayout title="Create an account to access your dashboard" step={6}>
-      <div className="space-y-8 mt-10">
-        <div className="space-y-4">
-          <Button 
-            variant="outline" 
-            onClick={() => handleGoogleSignIn()}
-            className="w-full onboarding-button h-12"
-          >
-            <img src="/login/google-white.png" alt="Google" className="w-4 h-4 mr-1" />
-            Continue with Google
-          </Button>
+    <PageTransition>
+      <OnboardingLayout title="Create an account to access your dashboard" step={6}>
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <Button 
+              variant="outline" 
+              onClick={() => handleGoogleSignIn()}
+              className="w-full onboarding-button h-12"
+            >
+              <img src="/login/google-white.png" alt="Google" className="w-4 h-4 mr-1" />
+              Continue with Google
+            </Button>
 
-          <Button 
-            variant="outline" 
-            onClick={() => handleAppleSignIn()}
-            className="w-full onboarding-button h-12"
-          >
-            <img src="/login/apple-white.png" alt="Google" className="w-4 h-4 mr-1" />
-            Continue with Apple
-          </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => handleAppleSignIn()}
+              className="w-full onboarding-button h-12"
+            >
+              <img src="/login/apple-white.png" alt="Google" className="w-4 h-4 mr-1" />
+              Continue with Apple
+            </Button>
 
-          <Button 
-            variant="outline" 
-            onClick={() => handleEmailSignIn()}
-            className="w-full onboarding-button h-12"
-          >
-            Continue with Email
-          </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => handleEmailSignIn()}
+              className="w-full onboarding-button h-12"
+            >
+              Continue with Email
+            </Button>
+          </div>
         </div>
-      </div>
-    </OnboardingLayout>
+      </OnboardingLayout>
+    </PageTransition>
   );
 };
 

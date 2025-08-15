@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import OnboardingLayout from '@/components/OnboardingLayout';
+import PageTransition from '@/components/PageTransition';
 
 const educationLevels = [
   { value: 'bachelor', label: 'University (bachelor)' },
@@ -53,82 +54,84 @@ const WhatDoYouStudy = () => {
   const isFormValid = true;
 
   return (
-    <OnboardingLayout title="What do you study?" step={2}>
-      <div className="space-y-6">
-        <div className="text-center">
-          <p className="subtitle-text text-sm leading-relaxed">
-            Tell us about your studies to get more personalized opportunities
-          </p>
-        </div>
+    <PageTransition>
+      <OnboardingLayout title="What do you study?" step={2}>
+        <div className="space-y-6">
+          <div className="text-center">
+            <p className="subtitle-text text-sm leading-relaxed">
+              Tell us about your studies to get more personalized opportunities
+            </p>
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="field" className="input-label text-sm">
-            What field do you study?
-          </label>
-          <Input
-            id="field"
-            type="text"
-            placeholder="Computer Science"
-            value={formData.field}
-            onChange={(e) => setFormData({ ...formData, field: e.target.value })}
-            className="onboarding-input"
-          />
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="field" className="input-label text-sm">
+              What field do you study?
+            </label>
+            <Input
+              id="field"
+              type="text"
+              placeholder="Computer Science"
+              value={formData.field}
+              onChange={(e) => setFormData({ ...formData, field: e.target.value })}
+              className="onboarding-input"
+            />
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="level" className="input-label text-sm">
-            What level are you studying at?
-          </label>
-          <Select value={formData.where} onValueChange={(value) => setFormData({ ...formData, where: value })}>
-            <SelectTrigger className="onboarding-dropdown">
-              <SelectValue placeholder="Select your level" />
-            </SelectTrigger>
-            <SelectContent className="onboarding-dropdown-content">
-              <SelectItem value="high-school">High School</SelectItem>
-              <SelectItem value="bachelors">Bachelor's Degree</SelectItem>
-              <SelectItem value="masters">Master's Degree</SelectItem>
-              <SelectItem value="phd">PhD</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="level" className="input-label text-sm">
+              What level are you studying at?
+            </label>
+            <Select value={formData.where} onValueChange={(value) => setFormData({ ...formData, where: value })}>
+              <SelectTrigger className="onboarding-dropdown">
+                <SelectValue placeholder="Select your level" />
+              </SelectTrigger>
+              <SelectContent className="onboarding-dropdown-content">
+                <SelectItem value="high-school">High School</SelectItem>
+                <SelectItem value="bachelors">Bachelor's Degree</SelectItem>
+                <SelectItem value="masters">Master's Degree</SelectItem>
+                <SelectItem value="phd">PhD</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="year" className="input-label text-sm">
-            What year are you in?
-          </label>
-          <Select value={formData.year} onValueChange={(value) => setFormData({ ...formData, year: value })}>
-            <SelectTrigger className="onboarding-dropdown">
-              <SelectValue placeholder="3rd" />
-            </SelectTrigger>
-            <SelectContent className="onboarding-dropdown-content">
-              {studyYears.map((year) => (
-                <SelectItem key={year.value} value={year.value}>
-                  {year.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="year" className="input-label text-sm">
+              What year are you in?
+            </label>
+            <Select value={formData.year} onValueChange={(value) => setFormData({ ...formData, year: value })}>
+              <SelectTrigger className="onboarding-dropdown">
+                <SelectValue placeholder="3rd" />
+              </SelectTrigger>
+              <SelectContent className="onboarding-dropdown-content">
+                {studyYears.map((year) => (
+                  <SelectItem key={year.value} value={year.value}>
+                    {year.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-        <div className="space-y-4">
-          <Button 
-            onClick={handleNext}
-            className="w-full onboarding-button continue-button"
-          >
-            Continue
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            onClick={handleSkip}
-            className="w-full onboarding-button"
-          >
-            Skip
-          </Button>
+          <div className="space-y-4">
+            <Button 
+              onClick={handleNext}
+              className="w-full onboarding-button continue-button"
+            >
+              Continue
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              onClick={handleSkip}
+              className="w-full onboarding-button"
+            >
+              Skip
+            </Button>
+          </div>
         </div>
-      </div>
-    </OnboardingLayout>
+      </OnboardingLayout>
+    </PageTransition>
   );
 };
 

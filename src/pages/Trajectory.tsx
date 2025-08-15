@@ -5,6 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Info } from 'lucide-react';
 import OnboardingLayout from '@/components/OnboardingLayout';
+import PageTransition from '@/components/PageTransition';
 
 const trajectoryOptions = [
   {
@@ -62,59 +63,61 @@ const Trajectory = () => {
   };
 
   return (
-    <OnboardingLayout title="Whats your trajectory?" step={3}>
-      <div className="space-y-4">
-        <div className="space-y-3">
-          {trajectoryOptions.map((option) => (
-            <Dialog key={option.id}>
-              <DialogTrigger asChild>
-                <div className="trajectory-option p-4 rounded-lg cursor-pointer hover:bg-accent/50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src={option.image} 
-                      alt={option.title}
-                      className="w-12 h-12 object-cover rounded-lg"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                    <div>
-                      <h3 className="font-semibold text-base">{option.title}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {option.description.slice(0, 80)}...
-                      </p>
+    <PageTransition>
+      <OnboardingLayout title="Whats your trajectory?" step={3}>
+        <div className="space-y-4">
+          <div className="space-y-3">
+            {trajectoryOptions.map((option) => (
+              <Dialog key={option.id}>
+                <DialogTrigger asChild>
+                  <div className="trajectory-option p-4 rounded-lg cursor-pointer hover:bg-accent/50 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src={option.image} 
+                        alt={option.title}
+                        className="w-12 h-12 object-cover rounded-lg"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                      <div>
+                        <h3 className="font-semibold text-base">{option.title}</h3>
+                        <p className="text-sm text-muted-foreground">
+                          {option.description.slice(0, 80)}...
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </DialogTrigger>
-              <DialogContent className="trajectory-modal max-w-2xl">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-3">
-                    <img 
-                      src={option.image} 
-                      alt={option.title}
-                      className="w-8 h-8 object-cover rounded"
-                    />
-                    {option.title}
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {option.description}
-                  </p>
-                  <div className="flex justify-end">
-                    <Button onClick={() => handleNext(option.id)}>
-                      Choose This Path
-                    </Button>
+                </DialogTrigger>
+                <DialogContent className="trajectory-modal max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center gap-3">
+                      <img 
+                        src={option.image} 
+                        alt={option.title}
+                        className="w-8 h-8 object-cover rounded"
+                      />
+                      {option.title}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {option.description}
+                    </p>
+                    <div className="flex justify-end">
+                      <Button onClick={() => handleNext(option.id)}>
+                        Choose This Path
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          ))}
+                </DialogContent>
+              </Dialog>
+            ))}
+          </div>
         </div>
-      </div>
-    </OnboardingLayout>
+      </OnboardingLayout>
+    </PageTransition>
   );
 };
 

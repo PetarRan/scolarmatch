@@ -195,6 +195,7 @@ const Dashboard = () => {
 
   const handleSubmitAgentTask = () => {
     if (!selectedOpportunity) return;
+    setAgentModalOpen(false);
     
     // Add loading state
     setWorkingOpportunities(prev => new Set(prev).add(selectedOpportunity.id));
