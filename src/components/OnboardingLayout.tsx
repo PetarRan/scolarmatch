@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { ReactNode } from "react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface OnboardingLayoutProps {
   children: ReactNode;
@@ -9,7 +9,12 @@ interface OnboardingLayoutProps {
   totalSteps?: number;
 }
 
-const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingLayoutProps) => {
+const OnboardingLayout = ({
+  children,
+  title,
+  step,
+  totalSteps = 6,
+}: OnboardingLayoutProps) => {
   const navigate = useNavigate();
 
   return (
@@ -19,13 +24,6 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
         <div className="flex items-center gap-2">
           <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
         </div>
-        <Button 
-          variant="minimal" 
-          onClick={() => navigate('/login')}
-          className="text-foreground hover:text-foreground"
-        >
-          Login
-        </Button>
       </header>
 
       {/* Progress indicator */}
@@ -36,7 +34,7 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
               <div
                 key={i}
                 className={`h-1 flex-1 rounded-full transition-colors ${
-                  i < step ? 'bg-primary' : 'bg-white/20'
+                  i < step ? "bg-primary" : "bg-white/20"
                 }`}
               />
             ))}

@@ -1,64 +1,69 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import OpportunityCard from '@/components/OpportunityCard';
-import { ArrowLeft, Filter } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import OpportunityCard from "@/components/OpportunityCard";
+import { ArrowLeft, Filter } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Mock saved opportunities - using the same structure as main dashboard
 const mockSavedOpportunities = [
   {
-    id: '1',
-    title: 'Google Software Engineering Internship',
-    organization: 'Google',
-    type: 'internship' as const,
-    description: 'Join Google\'s engineering team for a 12-week summer internship. Work on real projects that impact millions of users worldwide. Gain experience with cutting-edge technologies and collaborate with world-class engineers.',
-    deadline: 'February 15, 2025',
-    location: 'Mountain View, CA',
+    id: "1",
+    title: "Google Software Engineering Internship",
+    organization: "Google",
+    type: "internship" as const,
+    description:
+      "Join Google's engineering team for a 12-week summer internship. Work on real projects that impact millions of users worldwide. Gain experience with cutting-edge technologies and collaborate with world-class engineers.",
+    deadline: "February 15, 2025",
+    location: "Mountain View, CA",
     isAISuggested: true,
-    tags: ['Software Engineering', 'Python', 'Machine Learning'],
-    url: 'https://careers.google.com/internships',
+    tags: ["Software Engineering", "Python", "Machine Learning"],
+    url: "https://careers.google.com/internships",
     sponsorsVisa: true,
     sponsorsH1B: true,
-    logo: '/logos/google.png'
+    logo: "/logos/google.png",
   },
   {
-    id: '2',
-    title: 'Erasmus+ Exchange Program',
-    organization: 'European Commission',
-    type: 'scholarship' as const,
-    description: 'Study abroad in Europe for 6-12 months at partner universities. Receive monthly stipend of €850, travel allowance, and full tuition coverage. Experience different cultures and expand your academic network.',
-    deadline: 'January 31, 2025',
-    location: 'Europe',
+    id: "2",
+    title: "Erasmus+ Exchange Program",
+    organization: "European Commission",
+    type: "scholarship" as const,
+    description:
+      "Study abroad in Europe for 6-12 months at partner universities. Receive monthly stipend of €850, travel allowance, and full tuition coverage. Experience different cultures and expand your academic network.",
+    deadline: "January 31, 2025",
+    location: "Europe",
     isAISuggested: true,
-    tags: ['Study Abroad', 'Europe', 'Cultural Exchange'],
-    url: 'https://erasmus-plus.ec.europa.eu',
+    tags: ["Study Abroad", "Europe", "Cultural Exchange"],
+    url: "https://erasmus-plus.ec.europa.eu",
     sponsorsVisa: true,
     sponsorsH1B: false,
-    logo: '/logos/erasmus.png'
-  }
+    logo: "/logos/erasmus.png",
+  },
 ];
 
 const filterOptions = [
-  { value: 'all', label: 'All opportunities' },
-  { value: 'scholarship', label: 'Scholarships' },
-  { value: 'grant', label: 'Grants' },
-  { value: 'internship', label: 'Internships' },
-  { value: 'summer-camp', label: 'Summer Camps' },
-  { value: 'competition', label: 'Competitions' }
+  { value: "all", label: "All opportunities" },
+  { value: "scholarship", label: "Scholarships" },
+  { value: "grant", label: "Grants" },
+  { value: "internship", label: "Internships" },
+  { value: "summer-camp", label: "Summer Camps" },
+  { value: "competition", label: "Competitions" },
 ];
 
 const SavedOpportunities = () => {
   const navigate = useNavigate();
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [savedOpportunities, setSavedOpportunities] = useState<Set<string>>(new Set(['1', '2']));
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [savedOpportunities, setSavedOpportunities] = useState<Set<string>>(
+    new Set(["1", "2"])
+  );
 
-  const filteredOpportunities = activeFilter === 'all' 
-    ? mockSavedOpportunities 
-    : mockSavedOpportunities.filter(opp => opp.type === activeFilter);
+  const filteredOpportunities =
+    activeFilter === "all"
+      ? mockSavedOpportunities
+      : mockSavedOpportunities.filter((opp) => opp.type === activeFilter);
 
   const handleSaveOpportunity = (id: string) => {
-    setSavedOpportunities(prev => {
+    setSavedOpportunities((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
         newSet.delete(id);
@@ -70,12 +75,12 @@ const SavedOpportunities = () => {
   };
 
   const handleDiscardOpportunity = (id: string) => {
-    console.log('Discarded opportunity:', id);
+    console.log("Discarded opportunity:", id);
   };
 
   const handleTaskAgent = (opportunity: any) => {
     // In real app, would open agent modal
-    console.log('Task agent for:', opportunity.title);
+    console.log("Task agent for:", opportunity.title);
   };
 
   return (
@@ -85,7 +90,11 @@ const SavedOpportunities = () => {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" onClick={() => navigate('/dashboard')}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate("/dashboard")}
+              >
                 <ArrowLeft className="h-5 w-5" />
               </Button>
               <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
@@ -99,11 +108,9 @@ const SavedOpportunities = () => {
         <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h1 className="text-3xl font-bold text-foreground">Your Saved Opportunities</h1>
-              <Button variant="glass" className="gap-2">
-                <Filter className="h-4 w-4" />
-                Filter
-              </Button>
+              <h1 className="text-3xl font-bold text-foreground">
+                Your Saved Opportunities
+              </h1>
             </div>
 
             {/* Filters */}
@@ -111,7 +118,9 @@ const SavedOpportunities = () => {
               {filterOptions.map((filter) => (
                 <Badge
                   key={filter.value}
-                  variant={activeFilter === filter.value ? "default" : "outline"}
+                  variant={
+                    activeFilter === filter.value ? "default" : "outline"
+                  }
                   className="cursor-pointer px-3 py-1"
                   onClick={() => setActiveFilter(filter.value)}
                 >
@@ -135,11 +144,13 @@ const SavedOpportunities = () => {
                 ))
               ) : (
                 <div className="text-center py-12">
-                  <p className="text-muted-foreground text-lg">No saved opportunities yet</p>
-                  <Button 
-                    variant="outline" 
+                  <p className="text-muted-foreground text-lg">
+                    No saved opportunities yet
+                  </p>
+                  <Button
+                    variant="outline"
                     className="mt-4"
-                    onClick={() => navigate('/dashboard')}
+                    onClick={() => navigate("/dashboard")}
                   >
                     Browse Opportunities
                   </Button>
