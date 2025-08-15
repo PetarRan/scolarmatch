@@ -7,17 +7,23 @@ import { Apple, Mail } from 'lucide-react';
 
 const CreateAccount = () => {
   const navigate = useNavigate();
+  const isFromLogin = window.location.pathname === '/login';
 
   useEffect(() => {
-    // Check if all previous steps were completed
-    const step1Data = localStorage.getItem('onboarding_step1');
-    const step2Data = localStorage.getItem('onboarding_step2');
-    const step3Data = localStorage.getItem('onboarding_step3');
-    const step4Data = localStorage.getItem('onboarding_step4');
-    const step5Data = localStorage.getItem('onboarding_step5');
+    // Check if user is coming from login button (skip validation) or if all previous steps were completed
+    const isFromLogin = window.location.pathname === '/login';
     
-    if (!step1Data || !step2Data || !step3Data || !step4Data || !step5Data) {
-      navigate('/who-are-you');
+    if (!isFromLogin) {
+      // Check if all previous steps were completed
+      const step1Data = localStorage.getItem('onboarding_step1');
+      const step2Data = localStorage.getItem('onboarding_step2');
+      const step3Data = localStorage.getItem('onboarding_step3');
+      const step4Data = localStorage.getItem('onboarding_step4');
+      const step5Data = localStorage.getItem('onboarding_step5');
+      
+      if (!step1Data || !step2Data || !step3Data || !step4Data || !step5Data) {
+        navigate('/who-are-you');
+      }
     }
   }, [navigate]);
 
@@ -45,7 +51,10 @@ const CreateAccount = () => {
 
   return (
     <PageTransition>
-      <OnboardingLayout title="Create an account to access your dashboard" step={6}>
+      <OnboardingLayout 
+        title={isFromLogin ? "Login to your account" : "Create an account to access your dashboard"} 
+        step={isFromLogin ? undefined : 6}
+      >
         <div className="space-y-8">
           <div className="space-y-4">
             <Button 
@@ -54,7 +63,7 @@ const CreateAccount = () => {
               className="w-full onboarding-button h-12"
             >
               <img src="/login/google-white.png" alt="Google" className="w-4 h-4 mr-1" />
-              Continue with Google
+              {isFromLogin ? "Login with Google" : "Continue with Google"}
             </Button>
 
             <Button 
@@ -63,7 +72,7 @@ const CreateAccount = () => {
               className="w-full onboarding-button h-12"
             >
               <img src="/login/apple-white.png" alt="Google" className="w-4 h-4 mr-1" />
-              Continue with Apple
+              {isFromLogin ? "Login with Apple" : "Continue with Apple"}
             </Button>
 
             <Button 
@@ -71,13 +80,19 @@ const CreateAccount = () => {
               onClick={() => handleEmailSignIn()}
               className="w-full onboarding-button h-12"
             >
-              Continue with Email
+              {isFromLogin ? "Login with Email" : "Continue with Email"}
             </Button>
+                      </div>
+            
+            {isFromLogin && (
+              <div className="text-center text-sm text-muted-foreground">
+                <p>This is a demo website. All authentication is simulated.</p>
+              </div>
+            )}
           </div>
-        </div>
-      </OnboardingLayout>
-    </PageTransition>
-  );
+        </OnboardingLayout>
+      </PageTransition>
+    );
 };
 
 export default CreateAccount;

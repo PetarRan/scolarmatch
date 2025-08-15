@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/drop-cv" element={<DropCV />} />
           <Route path="/anything-else" element={<AnythingElse />} />
         <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/login" element={<CreateAccount />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/saved-opportunities" element={<SavedOpportunities />} />
         <Route path="/saved-resources" element={<SavedResources />} />
