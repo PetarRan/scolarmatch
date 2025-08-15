@@ -56,43 +56,52 @@ const WhatDoYouStudy = () => {
     <OnboardingLayout title="What do you study?" step={2}>
       <div className="space-y-6">
         <div className="text-center">
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="subtitle-text text-sm leading-relaxed">
             Tell us about your studies to get more personalized opportunities
           </p>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">Field</label>
+          <label htmlFor="field" className="input-label text-sm">
+            What field do you study?
+          </label>
           <Input
+            id="field"
+            type="text"
             placeholder="Computer Science"
             value={formData.field}
             onChange={(e) => setFormData({ ...formData, field: e.target.value })}
+            className="onboarding-input"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">Where</label>
+          <label htmlFor="level" className="input-label text-sm">
+            What level are you studying at?
+          </label>
           <Select value={formData.where} onValueChange={(value) => setFormData({ ...formData, where: value })}>
-            <SelectTrigger className="h-12 bg-input border-input-border">
-              <SelectValue placeholder="University (bachelor)" />
+            <SelectTrigger className="onboarding-dropdown">
+              <SelectValue placeholder="Select your level" />
             </SelectTrigger>
-            <SelectContent className="dropdown-content">
-              {educationLevels.map((level) => (
-                <SelectItem key={level.value} value={level.value}>
-                  {level.label}
-                </SelectItem>
-              ))}
+            <SelectContent className="onboarding-dropdown-content">
+              <SelectItem value="high-school">High School</SelectItem>
+              <SelectItem value="bachelors">Bachelor's Degree</SelectItem>
+              <SelectItem value="masters">Master's Degree</SelectItem>
+              <SelectItem value="phd">PhD</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">Year</label>
+          <label htmlFor="year" className="input-label text-sm">
+            What year are you in?
+          </label>
           <Select value={formData.year} onValueChange={(value) => setFormData({ ...formData, year: value })}>
-            <SelectTrigger className="h-12 bg-input border-input-border">
+            <SelectTrigger className="onboarding-dropdown">
               <SelectValue placeholder="3rd" />
             </SelectTrigger>
-            <SelectContent className="dropdown-content">
+            <SelectContent className="onboarding-dropdown-content">
               {studyYears.map((year) => (
                 <SelectItem key={year.value} value={year.value}>
                   {year.label}
@@ -102,21 +111,20 @@ const WhatDoYouStudy = () => {
           </Select>
         </div>
 
-        <div className="flex gap-3">
-          <Button 
-            onClick={handleSkip}
-            variant="outline"
-            className="flex-1" 
-            size="xl"
-          >
-            Skip
-          </Button>
+        <div className="space-y-4">
           <Button 
             onClick={handleNext}
-            className="flex-1" 
-            size="xl"
+            className="w-full onboarding-button continue-button"
           >
-            Next
+            Continue
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            onClick={handleSkip}
+            className="w-full onboarding-button"
+          >
+            Skip
           </Button>
         </div>
       </div>

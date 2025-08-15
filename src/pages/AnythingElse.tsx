@@ -27,28 +27,26 @@ const AnythingElse = () => {
   return (
     <OnboardingLayout title="Anything else?" step={5}>
       <div className="space-y-6">
-        <div className="text-center">
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Add anything else that will help Scolarmatch find the best opportunities for you
+        <div className="space-y-2">
+          <p className="subtitle-text text-center text-lg">
+            Is there anything else you'd like us to know about you?
           </p>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">Other info</label>
+        <div className="space-y-4">
           <Textarea
-            placeholder="For example, I want to look at opportunities abroad, potentially in France, but in small cities only"
+            placeholder="Tell us about your interests, goals, or any specific requirements..."
             value={additionalInfo}
             onChange={(e) => setAdditionalInfo(e.target.value)}
-            className="min-h-[200px] resize-none"
+            className="onboarding-input min-h-[200px] resize-none"
           />
         </div>
 
         <Button 
           onClick={handleNext}
-          className="w-full mt-8" 
-          size="xl"
+          className="w-full onboarding-button continue-button"
         >
-          Next
+          Continue
         </Button>
       </div>
     </OnboardingLayout>

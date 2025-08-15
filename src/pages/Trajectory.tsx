@@ -8,37 +8,29 @@ import OnboardingLayout from '@/components/OnboardingLayout';
 
 const trajectoryOptions = [
   {
-    id: 'faang',
-    title: 'Join a FAANG/Startup',
-    description: 'Learn more',
-    icon: '💼',
-    color: 'bg-blue-500/10 border-blue-500/20',
-    details: 'FAANG companies (Facebook/Meta, Apple, Amazon, Netflix, Google) and startups offer competitive salaries, cutting-edge technology, and rapid career growth. You\'ll work on products used by millions of people and have access to excellent benefits and learning opportunities.'
+    id: 'faangstartup',
+    title: 'FAANG/Startup',
+    description: 'Work at major tech companies like Google, Apple, Meta, or innovative startups. Focus on software engineering, product management, or data science roles with competitive salaries and equity packages.',
+    image: '/traject/faang.png'
   },
   {
-    id: 'consulting',
-    title: 'Work in consulting',
-    description: 'Learn more',
-    icon: '📊',
-    color: 'bg-orange-500/10 border-orange-500/20',
-    details: 'Consulting firms like McKinsey, BCG, and Bain provide exposure to diverse industries and business problems. You\'ll develop strong analytical skills, work with senior executives, and gain broad business knowledge that can be valuable for future career moves.'
+    id: 'consult',
+    title: 'Consulting',
+    description: 'Join consulting firms like McKinsey, BCG, or Bain. Work on diverse projects across industries, develop strategic thinking, and gain exposure to different business challenges and solutions.',
+    image: '/traject/consult.png'
   },
   {
     id: 'research',
-    title: 'Do research',
-    description: 'Learn more',
-    icon: '🔬',
-    color: 'bg-green-500/10 border-green-500/20',
-    details: 'Research positions in academia, government labs, or private research institutions allow you to push the boundaries of knowledge in your field. You\'ll have intellectual freedom, publish papers, and potentially make breakthrough discoveries that impact society.'
+    title: 'Research',
+    description: 'Pursue academic or industry research positions. Contribute to scientific advancement, publish papers, and work on cutting-edge technologies that could shape the future.',
+    image: '/traject/research.png'
   },
   {
     id: 'other',
     title: 'Other',
-    description: '',
-    icon: '❓',
-    color: 'bg-gray-500/10 border-gray-500/20',
-    details: 'There are many other career paths available: entrepreneurship, government work, non-profit organizations, teaching, freelancing, or creating your own unique path. The key is finding what aligns with your values, skills, and long-term goals.'
-  },
+    description: 'Explore alternative career paths like entrepreneurship, non-profit work, government positions, or creative industries. Find your unique path that aligns with your values and interests.',
+    image: '/traject/other.png'
+  }
 ];
 
 const Trajectory = () => {
@@ -62,9 +54,9 @@ const Trajectory = () => {
     );
   };
 
-  const handleNext = () => {
-    if (selectedOptions.length > 0) {
-      localStorage.setItem('onboarding_step3', JSON.stringify({ trajectory: selectedOptions }));
+  const handleNext = (optionId: string) => {
+    if (optionId) {
+      localStorage.setItem('onboarding_step3', JSON.stringify({ trajectory: optionId }));
       navigate('/drop-cv');
     }
   };
@@ -72,60 +64,55 @@ const Trajectory = () => {
   return (
     <OnboardingLayout title="Whats your trajectory?" step={3}>
       <div className="space-y-4">
-        {trajectoryOptions.map((option) => (
-          <div
-            key={option.id}
-            className={`p-4 rounded-lg border backdrop-blur-sm cursor-pointer transition-all hover:border-primary/30 ${
-              selectedOptions.includes(option.id) 
-                ? 'border-primary bg-primary/10' 
-                : 'border-input-border bg-input'
-            }`}
-            onClick={() => handleOptionToggle(option.id)}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{option.icon}</span>
-                <div>
-                  <h3 className="font-medium text-foreground">{option.title}</h3>
-                  {option.description && (
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                          <span>{option.description}</span>
-                          <Info className="h-3 w-3" />
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-md">
-                        <DialogHeader>
-                          <DialogTitle className="flex items-center gap-2">
-                            <span className="text-2xl">{option.icon}</span>
-                            {option.title}
-                          </DialogTitle>
-                        </DialogHeader>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {option.details}
-                        </p>
-                      </DialogContent>
-                    </Dialog>
-                  )}
+        <div className="space-y-3">
+          {trajectoryOptions.map((option) => (
+            <Dialog key={option.id}>
+              <DialogTrigger asChild>
+                <div className="trajectory-option p-4 rounded-lg cursor-pointer hover:bg-accent/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={option.image} 
+                      alt={option.title}
+                      className="w-12 h-12 object-cover rounded-lg"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                    <div>
+                      <h3 className="font-semibold text-base">{option.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {option.description.slice(0, 80)}...
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <Checkbox 
-                checked={selectedOptions.includes(option.id)}
-                onCheckedChange={() => handleOptionToggle(option.id)}
-              />
-            </div>
-          </div>
-        ))}
-
-        <Button 
-          onClick={handleNext}
-          disabled={selectedOptions.length === 0}
-          className="w-full mt-8" 
-          size="xl"
-        >
-          Next
-        </Button>
+              </DialogTrigger>
+              <DialogContent className="trajectory-modal max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-3">
+                    <img 
+                      src={option.image} 
+                      alt={option.title}
+                      className="w-8 h-8 object-cover rounded"
+                    />
+                    {option.title}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">
+                    {option.description}
+                  </p>
+                  <div className="flex justify-end">
+                    <Button onClick={() => handleNext(option.id)}>
+                      Choose This Path
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          ))}
+        </div>
       </div>
     </OnboardingLayout>
   );

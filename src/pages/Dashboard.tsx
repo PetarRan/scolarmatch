@@ -115,16 +115,6 @@ const mockResources = [
   },
   {
     id: '5',
-    title: 'The future of remote work in software development',
-    source: 'stackoverflow.blog',
-    description: 'Analysis of remote work trends in the tech industry, including productivity metrics, team collaboration tools, and best practices for distributed engineering teams.',
-    url: 'https://stackoverflow.blog/remote-work-future',
-    publishedAt: '2024-01-11',
-    readTime: '10 min',
-    logo: '/logos/stackoverflow.png'
-  },
-  {
-    id: '6',
     title: 'Building a portfolio that gets you hired',
     source: 'github.blog',
     description: 'Guide to creating an impressive developer portfolio using GitHub, including project showcases, contribution graphs, and how to make your profile stand out to recruiters.',
@@ -140,8 +130,6 @@ const filterOptions = [
   { value: 'scholarship', label: 'Scholarships' },
   { value: 'grant', label: 'Grants' },
   { value: 'internship', label: 'Internships' },
-  { value: 'summer-camp', label: 'Summer Camps' },
-  { value: 'competition', label: 'Competitions' }
 ];
 
 const Dashboard = () => {
@@ -227,13 +215,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen dashboard-bg">
+    <div className="min-h-screen dashboard-bg container">
       {/* Header */}
       <header>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo-full.png" alt="Scolarmatch" className="h-8 w-auto" />
+              <img src="/logo-full.png" alt="Scolarmatch" className="h-12 w-auto" />
             </div>
             <div className="flex items-center gap-4">
               <Button 
@@ -267,7 +255,7 @@ const Dashboard = () => {
           <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-foreground">Opportunities</h2>
+                <h2 className="text-4xl text-foreground">Opportunities</h2>
               </div>
 
               {/* Filters */}
@@ -304,7 +292,7 @@ const Dashboard = () => {
           {/* Resources Column */}
           <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-foreground">Resources</h2>
+              <h2 className="text-4xl text-foreground">Resources</h2>
               
               <div className="space-y-4">
                 {mockResources.map((resource) => (

@@ -7,7 +7,7 @@ interface Opportunity {
   id: string;
   title: string;
   organization: string;
-  type: 'scholarship' | 'grant' | 'internship' | 'summer-camp' | 'competition';
+  type: 'scholarship' | 'grant' | 'internship';
   description: string;
   deadline: string;
   location?: string;

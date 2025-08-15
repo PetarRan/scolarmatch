@@ -217,3 +217,84 @@
     z-index: 50;
   }
 }
+
+/* Onboarding input styles */
+.onboarding-input {
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
+  padding: 15px 18px !important;
+}
+
+.onboarding-input:focus {
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
+}
+
+/* Onboarding button styles */
+.onboarding-button {
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
+}
+
+.onboarding-button:hover {
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
+}
+
+/* Trajectory modal styles */
+.trajectory-modal {
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
+  backdrop-filter: blur(16px) !important;
+  margin-top: 20px !important;
+}
+
+/* Trajectory option styles */
+.trajectory-option {
+  border: 1px solid #FFFFFF33 !important;
+}
+
+/* Input label styles */
+.input-label {
+  color: #A1A4A5 !important;
+  font-weight: normal !important;
+}
+
+/* Subtitle styles */
+.subtitle-text {
+  color: #A1A4A5 !important;
+}
+
+/* Continue button styles */
+.continue-button {
+  color: #FFFFFF !important;
+}
+
+/* Dropdown styles */
+.onboarding-dropdown {
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
+}
+
+.onboarding-dropdown:focus {
+  background: linear-gradient(135deg, #FDFDFD1A, #F0F0E42A) !important;
+}
+
+/* Dropdown content styles */
+.onboarding-dropdown-content {
+  background: linear-gradient(135deg, #FDFDFD0D, #F0F0E41A) !important;
+  border: 2px solid #FFFFFF0D !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.onboarding-dropdown-content .SelectItem {
+  background: transparent !important;
+}
+
+.onboarding-dropdown-content .SelectItem:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Create account title styles */
+.create-account-title {
+  font-weight: normal !important;
+  font-size: 1.25rem !important;
+}

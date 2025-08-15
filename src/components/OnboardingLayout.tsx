@@ -48,7 +48,7 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
       <main className="flex-1 flex items-center justify-center p-6">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-foreground mb-8">{title}</h1>
+            <h1 className="text-4xl text-foreground mb-8">{title}</h1>
           </div>
           {children}
         </div>
