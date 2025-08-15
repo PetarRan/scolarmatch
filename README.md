@@ -1,28 +1,17 @@
-# Scolarmatch 🎓
+# Scolarmatch
 
-An intelligent opportunity aggregator that scrapes and curates local scholarships, internships, summer camps, and competitions. Scolarmatch helps students discover and apply to opportunities that match their profile, with AI-powered task agents to streamline the application process.
+an AI & agentic opportunity aggregator that scrapes and curates local scholarships, internships, summer camps, and competitions. scolarmatch helps students discover and apply to opportunities that match their profile, with AI-powered task agents to streamline the application process.
 
-## ✨ Features
+## Features
 
-### 🔍 **Smart Opportunity Discovery**
-- **Comprehensive Scraping**: Automatically finds scholarships, internships, summer camps, and competitions
-- **Intelligent Filtering**: Filter by grade level, location, interests, and eligibility criteria
-- **Real-time Updates**: Get notified via email or SMS when new matching opportunities appear
+### **opportunity discovery**
+- **scraping**: Automatically finds scholarships, internships, summer camps, and competitions
+- **real-time updates**: get notified via email when new matching opportunities appear
 
-### 🤖 **AI Task Agents**
-- **Application Drafting**: AI agents help draft personalized applications for opportunities
-- **First Access**: Be among the first to see new opportunities as they're discovered
-- **Smart Matching**: AI suggests opportunities based on your profile and preferences
-
-### 🎯 **Personalized Experience**
-- **Profile-Based Matching**: Opportunities tailored to your academic level, interests, and background
-- **Visa Sponsorship**: Clear indicators for opportunities that sponsor visas or H1B
-- **Save & Organize**: Keep track of interesting opportunities and resources
-
-### 📱 **Modern Interface**
-- **Beautiful Design**: Clean, modern UI with smooth page transitions
-- **Mobile Responsive**: Works seamlessly on all devices
-- **Intuitive Navigation**: Simple onboarding flow to get started quickly
+### **AI task agents**
+- **application drafting**: AI agents help draft personalized applications for opportunities
+- **first access**: Be among the first to see new opportunities as they're discovered
+- **smart matching**: AI suggests opportunities based on your profile and preferences
 
 ## 🚀 Getting Started
 
@@ -46,20 +35,18 @@ npm run dev
 ### Environment Setup
 Create a `.env.local` file with your configuration:
 ```env
-VITE_API_URL=your_api_url
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_key
 ```
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 18 + TypeScript + Vite
 - **UI Components**: Shadcn/ui + Tailwind CSS
 - **Animations**: Framer Motion
 - **State Management**: React Hooks + Local Storage
-- **Styling**: Tailwind CSS with custom design system
 
-## 📋 Project Structure
+## Project Structure
 
 ```
 scolarmatch/
@@ -73,7 +60,7 @@ scolarmatch/
 └── docs/                   # Documentation
 ```
 
-## 🎯 Use Cases
+## Use Cases
 
 ### For Students
 - Discover scholarships matching your profile
@@ -91,16 +78,15 @@ scolarmatch/
 - Use AI agents to streamline application review
 - Connect with motivated students
 
-## 🔗 Integrations
+## Integrations (TBD)
 
-- **Devpost**: Scholarship and competition discovery
-- **LinkedIn**: Professional opportunity integration
-- **University APIs**: Local opportunity aggregation
-- **Email/SMS**: Notification systems
+- **University APIs**: local opportunity aggregation
+- **Devpost**: hackathon discovery
 
-## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+## Contributing
+
+We welcome contributions!
 
 ### Development Workflow
 1. Fork the repository
@@ -109,21 +95,11 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## Acknowledgments
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with ❤️ for students worldwide
-- Special thanks to the open source community
-- Inspired by the need for accessible educational opportunities
-
-## 📞 Contact
-
-- **Website**: [scolarmatch.com](https://scolarmatch.com)
-- **Email**: hello@scolarmatch.com
-- **Twitter**: [@scolarmatch](https://twitter.com/scolarmatch)
+- built with ❤️ for students worldwide
+- special thanks to the open source community
+- inspired by the need for accessible educational opportunities
 
 ---
 
