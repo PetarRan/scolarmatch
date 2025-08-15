@@ -171,12 +171,12 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
             <>
               <Loader2 className="h-3 w-3 mr-1 animate-spin" />
               <span className="hidden sm:inline">Working...</span>
-              <span className="sm:hidden">...</span>
+              <span className="sm:hidden"></span>
             </>
           ) : (
             <>
               <span className="hidden sm:inline">🤖 Task Agent</span>
-              <span className="sm:hidden">🤖</span>
+              <span className="sm:hidden">🤖 Apply</span>
             </>
           )}
         </Button>
@@ -188,7 +188,7 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
         >
           <X className="h-3 w-3 mr-1" />
           <span className="hidden sm:inline">Discard</span>
-          <span className="sm:hidden">X</span>
+          <span className="sm:hidden"></span>
         </Button>
         <Button
           variant="outline"
@@ -200,12 +200,12 @@ const OpportunityCard = ({ opportunity, onSave, onDiscard, onTaskAgent, isSaved,
             <>
               <BookmarkCheck className="h-3 w-3 mr-1" />
               <span className="hidden sm:inline">Saved</span>
-              <span className="sm:hidden">✓</span>
+              <span className="sm:hidden"></span>
             </>
           ) : (
             <>
               <Bookmark className="h-3 w-3 mr-1" />
-              <span className="sm:hidden">☆</span>
+              <span className="sm:hidden"></span>
               <span className="hidden sm:inline">Save</span>
             </>
           )}
