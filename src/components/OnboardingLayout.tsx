@@ -18,7 +18,6 @@ const OnboardingLayout = ({ children, title, step, totalSteps = 6 }: OnboardingL
       <header className="flex justify-between items-center p-6">
         <div className="flex items-center gap-2">
           <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
-          <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
         </div>
         <Button 
           variant="minimal" 

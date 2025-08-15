@@ -39,7 +39,7 @@ const AnythingElse = () => {
             placeholder="For example, I want to look at opportunities abroad, potentially in France, but in small cities only"
             value={additionalInfo}
             onChange={(e) => setAdditionalInfo(e.target.value)}
-            className="min-h-[120px] resize-none"
+            className="min-h-[200px] resize-none"
           />
         </div>
 

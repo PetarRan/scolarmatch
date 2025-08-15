@@ -5,19 +5,37 @@ import OpportunityCard from '@/components/OpportunityCard';
 import { ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// Mock saved opportunities
+// Mock saved opportunities - using the same structure as main dashboard
 const mockSavedOpportunities = [
   {
     id: '1',
-    title: 'Fullbright Scolarship',
-    organization: 'Scolarships',
-    type: 'scholarship' as const,
-    description: 'Fullbright Foreign Student Program (Master\'s Degree) Application for the Fullbright Foreign Student Program in the United States (Master\'s Degree) A mainstay of America\'s public-diplomacy efforts, the Fullbright Foreign Student Program brings citizens of other countries to the United States for Master\'s degree at U.S...',
-    deadline: '12 dic 2024',
-    location: 'United States',
+    title: 'Google Software Engineering Internship',
+    organization: 'Google',
+    type: 'internship' as const,
+    description: 'Join Google\'s engineering team for a 12-week summer internship. Work on real projects that impact millions of users worldwide. Gain experience with cutting-edge technologies and collaborate with world-class engineers.',
+    deadline: 'February 15, 2025',
+    location: 'Mountain View, CA',
     isAISuggested: true,
-    tags: ['Computer Science', 'Masters', 'International'],
-    url: 'https://example.com/fullbright'
+    tags: ['Software Engineering', 'Python', 'Machine Learning'],
+    url: 'https://careers.google.com/internships',
+    sponsorsVisa: true,
+    sponsorsH1B: true,
+    logo: '/logos/google.png'
+  },
+  {
+    id: '2',
+    title: 'Erasmus+ Exchange Program',
+    organization: 'European Commission',
+    type: 'scholarship' as const,
+    description: 'Study abroad in Europe for 6-12 months at partner universities. Receive monthly stipend of €850, travel allowance, and full tuition coverage. Experience different cultures and expand your academic network.',
+    deadline: 'January 31, 2025',
+    location: 'Europe',
+    isAISuggested: true,
+    tags: ['Study Abroad', 'Europe', 'Cultural Exchange'],
+    url: 'https://erasmus-plus.ec.europa.eu',
+    sponsorsVisa: true,
+    sponsorsH1B: false,
+    logo: '/logos/erasmus.png'
   }
 ];
 
@@ -33,7 +51,7 @@ const filterOptions = [
 const SavedOpportunities = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
-  const [savedOpportunities, setSavedOpportunities] = useState<Set<string>>(new Set(['1']));
+  const [savedOpportunities, setSavedOpportunities] = useState<Set<string>>(new Set(['1', '2']));
 
   const filteredOpportunities = activeFilter === 'all' 
     ? mockSavedOpportunities 
@@ -55,10 +73,15 @@ const SavedOpportunities = () => {
     console.log('Discarded opportunity:', id);
   };
 
+  const handleTaskAgent = (opportunity: any) => {
+    // In real app, would open agent modal
+    console.log('Task agent for:', opportunity.title);
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dashboard-bg">
       {/* Header */}
-      <header className="border-b border-card-border bg-card-glass backdrop-blur-md">
+      <header>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -66,7 +89,6 @@ const SavedOpportunities = () => {
                 <ArrowLeft className="h-5 w-5" />
               </Button>
               <img src="/logo.png" alt="Scolarmatch" className="h-8 w-auto" />
-              <span className="text-xl font-semibold text-foreground">Scolarmatch</span>
             </div>
           </div>
         </div>
@@ -74,53 +96,56 @@ const SavedOpportunities = () => {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-8">
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold text-foreground">Your Saved Opportunities</h1>
-            <Button variant="glass" className="gap-2">
-              <Filter className="h-4 w-4" />
-              Filter
-            </Button>
-          </div>
+        <div className="bg-gradient-to-br from-[#FDFDFD0D] to-[#F0F0E41A] border-2 border-[#FFFFFF0D] rounded-xl p-6 backdrop-blur-md">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h1 className="text-3xl font-bold text-foreground">Your Saved Opportunities</h1>
+              <Button variant="glass" className="gap-2">
+                <Filter className="h-4 w-4" />
+                Filter
+              </Button>
+            </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap gap-2">
-            {filterOptions.map((filter) => (
-              <Badge
-                key={filter.value}
-                variant={activeFilter === filter.value ? "default" : "outline"}
-                className="cursor-pointer px-3 py-1"
-                onClick={() => setActiveFilter(filter.value)}
-              >
-                {filter.label}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Opportunities List */}
-          <div className="space-y-4">
-            {filteredOpportunities.length > 0 ? (
-              filteredOpportunities.map((opportunity) => (
-                <OpportunityCard
-                  key={opportunity.id}
-                  opportunity={opportunity}
-                  onSave={handleSaveOpportunity}
-                  onDiscard={handleDiscardOpportunity}
-                  isSaved={savedOpportunities.has(opportunity.id)}
-                />
-              ))
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground text-lg">No saved opportunities yet</p>
-                <Button 
-                  variant="outline" 
-                  className="mt-4"
-                  onClick={() => navigate('/dashboard')}
+            {/* Filters */}
+            <div className="flex flex-wrap gap-2">
+              {filterOptions.map((filter) => (
+                <Badge
+                  key={filter.value}
+                  variant={activeFilter === filter.value ? "default" : "outline"}
+                  className="cursor-pointer px-3 py-1"
+                  onClick={() => setActiveFilter(filter.value)}
                 >
-                  Browse Opportunities
-                </Button>
-              </div>
-            )}
+                  {filter.label}
+                </Badge>
+              ))}
+            </div>
+
+            {/* Opportunities List */}
+            <div className="space-y-4">
+              {filteredOpportunities.length > 0 ? (
+                filteredOpportunities.map((opportunity) => (
+                  <OpportunityCard
+                    key={opportunity.id}
+                    opportunity={opportunity}
+                    onSave={handleSaveOpportunity}
+                    onDiscard={handleDiscardOpportunity}
+                    onTaskAgent={handleTaskAgent}
+                    isSaved={savedOpportunities.has(opportunity.id)}
+                  />
+                ))
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground text-lg">No saved opportunities yet</p>
+                  <Button 
+                    variant="outline" 
+                    className="mt-4"
+                    onClick={() => navigate('/dashboard')}
+                  >
+                    Browse Opportunities
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>

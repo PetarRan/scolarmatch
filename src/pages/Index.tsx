@@ -22,9 +22,6 @@ const Index = () => {
       <div className="text-center max-w-2xl">
         <div className="mb-8">
           <img src="/logo.png" alt="Scolarmatch" className="h-16 w-auto mx-auto mb-4" />
-          <h1 className="text-5xl font-bold text-foreground mb-4 gradient-text">
-            Scolarmatch
-          </h1>
         </div>
         <h2 className="text-3xl font-bold text-foreground mb-6">
           Discover Your Perfect Opportunities

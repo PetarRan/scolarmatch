@@ -39,17 +39,28 @@ const WhatDoYouStudy = () => {
   }, [navigate]);
 
   const handleNext = () => {
-    if (formData.field && formData.where && formData.year) {
-      localStorage.setItem('onboarding_step2', JSON.stringify(formData));
-      navigate('/trajectory');
-    }
+    // Make all fields optional - user can skip this step
+    localStorage.setItem('onboarding_step2', JSON.stringify(formData));
+    navigate('/trajectory');
   };
 
-  const isFormValid = formData.field && formData.where && formData.year;
+  const handleSkip = () => {
+    localStorage.setItem('onboarding_step2', JSON.stringify({ field: '', where: '', year: '' }));
+    navigate('/trajectory');
+  };
+
+  // Remove form validation requirement
+  const isFormValid = true;
 
   return (
     <OnboardingLayout title="What do you study?" step={2}>
       <div className="space-y-6">
+        <div className="text-center">
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Tell us about your studies to get more personalized opportunities
+          </p>
+        </div>
+
         <div className="space-y-2">
           <label className="text-sm font-medium text-muted-foreground">Field</label>
           <Input
@@ -91,14 +102,23 @@ const WhatDoYouStudy = () => {
           </Select>
         </div>
 
-        <Button 
-          onClick={handleNext}
-          disabled={!isFormValid}
-          className="w-full mt-8" 
-          size="xl"
-        >
-          Next
-        </Button>
+        <div className="flex gap-3">
+          <Button 
+            onClick={handleSkip}
+            variant="outline"
+            className="flex-1" 
+            size="xl"
+          >
+            Skip
+          </Button>
+          <Button 
+            onClick={handleNext}
+            className="flex-1" 
+            size="xl"
+          >
+            Next
+          </Button>
+        </div>
       </div>
     </OnboardingLayout>
   );

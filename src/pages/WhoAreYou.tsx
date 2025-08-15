@@ -4,25 +4,13 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import OnboardingLayout from '@/components/OnboardingLayout';
-
-const countries = [
-  { value: 'us', label: '🇺🇸 United States', flag: '🇺🇸' },
-  { value: 'uk', label: '🇬🇧 United Kingdom', flag: '🇬🇧' },
-  { value: 'ca', label: '🇨🇦 Canada', flag: '🇨🇦' },
-  { value: 'au', label: '🇦🇺 Australia', flag: '🇦🇺' },
-  { value: 'de', label: '🇩🇪 Germany', flag: '🇩🇪' },
-  { value: 'fr', label: '🇫🇷 France', flag: '🇫🇷' },
-  { value: 'it', label: '🇮🇹 Italy', flag: '🇮🇹' },
-  { value: 'es', label: '🇪🇸 Spain', flag: '🇪🇸' },
-  { value: 'nl', label: '🇳🇱 Netherlands', flag: '🇳🇱' },
-  { value: 'jp', label: '🇯🇵 Japan', flag: '🇯🇵' },
-];
+import { countryOptions } from '@/lib/countries';
 
 const WhoAreYou = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    nationality: '',
+    nationality: 'us',
     age: ''
   });
 
@@ -42,7 +30,7 @@ const WhoAreYou = () => {
         <div className="space-y-2">
           <label className="text-sm font-medium text-muted-foreground">Name</label>
           <Input
-            placeholder="Alessandro"
+            placeholder="John"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
@@ -55,7 +43,7 @@ const WhoAreYou = () => {
               <SelectValue placeholder="🇮🇹 Italy" />
             </SelectTrigger>
             <SelectContent className="dropdown-content">
-              {countries.map((country) => (
+              {countryOptions.map((country) => (
                 <SelectItem key={country.value} value={country.value}>
                   {country.label}
                 </SelectItem>
@@ -68,7 +56,7 @@ const WhoAreYou = () => {
           <label className="text-sm font-medium text-muted-foreground">Age</label>
           <Input
             type="number"
-            placeholder="24"
+            placeholder="22"
             value={formData.age}
             onChange={(e) => setFormData({ ...formData, age: e.target.value })}
             min="16"
