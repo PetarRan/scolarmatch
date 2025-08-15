@@ -1,73 +1,130 @@
-# Welcome to your Lovable project
+# Scolarmatch 🎓
 
-## Project info
+An intelligent opportunity aggregator that scrapes and curates local scholarships, internships, summer camps, and competitions. Scolarmatch helps students discover and apply to opportunities that match their profile, with AI-powered task agents to streamline the application process.
 
-**URL**: https://lovable.dev/projects/80f25082-7449-4de3-a6fe-a54e6e8712a8
+## ✨ Features
 
-## How can I edit this code?
+### 🔍 **Smart Opportunity Discovery**
+- **Comprehensive Scraping**: Automatically finds scholarships, internships, summer camps, and competitions
+- **Intelligent Filtering**: Filter by grade level, location, interests, and eligibility criteria
+- **Real-time Updates**: Get notified via email or SMS when new matching opportunities appear
 
-There are several ways of editing your application.
+### 🤖 **AI Task Agents**
+- **Application Drafting**: AI agents help draft personalized applications for opportunities
+- **First Access**: Be among the first to see new opportunities as they're discovered
+- **Smart Matching**: AI suggests opportunities based on your profile and preferences
 
-**Use Lovable**
+### 🎯 **Personalized Experience**
+- **Profile-Based Matching**: Opportunities tailored to your academic level, interests, and background
+- **Visa Sponsorship**: Clear indicators for opportunities that sponsor visas or H1B
+- **Save & Organize**: Keep track of interesting opportunities and resources
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/80f25082-7449-4de3-a6fe-a54e6e8712a8) and start prompting.
+### 📱 **Modern Interface**
+- **Beautiful Design**: Clean, modern UI with smooth page transitions
+- **Mobile Responsive**: Works seamlessly on all devices
+- **Intuitive Navigation**: Simple onboarding flow to get started quickly
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/scolarmatch.git
+cd scolarmatch
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Environment Setup
+Create a `.env.local` file with your configuration:
+```env
+VITE_API_URL=your_api_url
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_key
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏗️ Tech Stack
 
-**Use GitHub Codespaces**
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI Components**: Shadcn/ui + Tailwind CSS
+- **Animations**: Framer Motion
+- **State Management**: React Hooks + Local Storage
+- **Styling**: Tailwind CSS with custom design system
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📋 Project Structure
 
-## What technologies are used for this project?
+```
+scolarmatch/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Page components
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions and configurations
+│   └── assets/             # Images and static assets
+├── public/                 # Public assets and logos
+└── docs/                   # Documentation
+```
 
-This project is built with:
+## 🎯 Use Cases
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### For Students
+- Discover scholarships matching your profile
+- Find internships in your field of study
+- Apply to summer camps and competitions
+- Get AI assistance with applications
 
-## How can I deploy this project?
+### For Educators
+- Share opportunities with students
+- Track student engagement
+- Monitor application success rates
 
-Simply open [Lovable](https://lovable.dev/projects/80f25082-7449-4de3-a6fe-a54e6e8712a8) and click on Share -> Publish.
+### For Organizations
+- Post opportunities to reach qualified candidates
+- Use AI agents to streamline application review
+- Connect with motivated students
 
-## Can I connect a custom domain to my Lovable project?
+## 🔗 Integrations
 
-Yes, you can!
+- **Devpost**: Scholarship and competition discovery
+- **LinkedIn**: Professional opportunity integration
+- **University APIs**: Local opportunity aggregation
+- **Email/SMS**: Notification systems
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ for students worldwide
+- Special thanks to the open source community
+- Inspired by the need for accessible educational opportunities
+
+## 📞 Contact
+
+- **Website**: [scolarmatch.com](https://scolarmatch.com)
+- **Email**: hello@scolarmatch.com
+- **Twitter**: [@scolarmatch](https://twitter.com/scolarmatch)
+
+---
+
+**Scolarmatch** - Discover Your Perfect Opportunities 🚀
