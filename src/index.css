@@ -113,6 +113,25 @@
     position: relative;
   }
   
+  /* iOS status bar fix */
+  @supports (-webkit-touch-callout: none) {
+    .dashboard-bg {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+
+  /* Edge to edge layout */
+  .edge-to-edge {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Dashboard specific background flip */
   .dashboard-bg::before {
     content: '';
     position: fixed;
